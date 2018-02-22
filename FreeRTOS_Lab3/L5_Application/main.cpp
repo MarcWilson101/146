@@ -47,12 +47,6 @@ void vTaskCode(void * pvParameters)
     while(1)
     {
         vTaskDelay(1000);
-        //while(!(LPC_ADC->ADGDR & (1 << 31)))
-        //{
-            //vTaskDelay(100);
-            //printf("Not done yet\n");
-            //wait
-        //}
         ADGDR_Read = LPC_ADC->ADGDR;
         channel = (ADGDR_Read>>24) & 0x7;
         printf("Channel: %i ", channel);
